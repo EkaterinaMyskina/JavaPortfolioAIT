@@ -1,0 +1,6 @@
+
+‚
+java:S1192"eDefine a constant instead of duplicating this literal "Ð ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¸ " 4 times.(Ì§Ä«8þä–àÛ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(½¯•¯üÿÿÿÿ8ÿä–àÛ1
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(Çµí‘8ãå–àÛ1
