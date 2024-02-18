@@ -1,6 +1,15 @@
 package houmework01;
 
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.FloatControl;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.File;
+import java.io.IOException;
+import javax.sound.sampled.*;
+
 /*
 Задание: Программа "Угадай число" (со звездочкой)
 
@@ -64,6 +73,39 @@ public class Homework09b {
             counter++;
             if (userNumberVariant == goalNumber) {
                 System.out.println("Поздравляю! Вы угадали число за " + counter + " попыток.");
+                // воспроизводим звук
+                try {
+                    File soundFile = new File("C:\\Users\\Kate\\Downloads\\zvuk-pobedyi-vyiigryisha.wav"); //Звуковой файл
+
+
+                    //Получаем AudioInputStream
+                    //Вот тут могут полететь IOException и UnsupportedAudioFileException
+                    AudioInputStream ais = AudioSystem.getAudioInputStream(soundFile);
+
+                    //Получаем реализацию интерфейса Clip
+                    //Может выкинуть LineUnavailableException
+                    Clip clip = AudioSystem.getClip();
+
+                    //Загружаем наш звуковой поток в Clip
+                    //Может выкинуть IOException и LineUnavailableException
+                    clip.open(ais);
+
+                    clip.setFramePosition(0); //устанавливаем указатель на старт
+                    clip.start(); //Поехали!!!
+
+                    //Если не запущено других потоков, то стоит подождать, пока клип не закончится
+                    //В GUI-приложениях следующие 3 строчки не понадобятся
+                    Thread.sleep(clip.getMicrosecondLength()/1000);
+                    clip.stop(); //Останавливаем
+                    clip.close(); //Закрываем
+                } catch (IOException | UnsupportedAudioFileException | LineUnavailableException exc) {
+                    exc.printStackTrace();
+                } catch (InterruptedException exc) {}
+
+
+                //конец попытки воспроизвести звук
+
+
                 System.out.println("Хотите играть еще раз? Нажмите да, чтобы продолжить и нет, чтобы закончить: ");
                 String replyExitOrNot = scanner.next();
                 if (replyExitOrNot.equals("да")){
