@@ -1,18 +1,19 @@
 package houmework01;
-
+import java.io.File;
+import java.io.IOException;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
+import javax.sound.sampled.LineEvent;
+import javax.sound.sampled.LineListener;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import java.io.File;
-import java.io.IOException;
-import javax.sound.sampled.*;
+
 
 /*
 Задание: Программа "Угадай число" (со звездочкой)
-
 Цель: Разработать консольную игру, в которой пользователь должен угадать случайно
 сгенерированное число в пределах от 1 до 100. Программа должна давать подсказки после
 каждой попытки, сообщая, больше или меньше введенное число, чем загаданное.
@@ -20,33 +21,25 @@ import javax.sound.sampled.*;
 должна вывести количество попыток, потраченных на угадывание, и предложить пользователю
 сыграть еще раз.
 Шаги реализации:
-
     Генерация случайного числа.
         Использовать Math.random() для генерации случайного числа в заданном диапазоне (1-100).
-
     Основной игровой цикл.
         Использовать цикл (do-while или while), чтобы запросить у пользователя ввод числа до
         тех пор, пока не будет угадано загаданное число.
-
     Сравнение чисел и подсказки.
         Использовать условные операторы для сравнения введенного числа с загаданным и вывода
         подсказок ("слишком большое", "слишком маленькое").
-
     Подсчет попыток.
         Вести подсчет числа попыток, которые пользователь сделал для угадывания числа.
-
     Окончание игры и предложение повторить.
         После угадывания числа вывести количество попыток и спросить пользователя, хочет
         ли он сыграть еще раз.
         Если да, игра начинается заново с генерации нового случайного числа; если нет —
         программа завершается.
-
 Дополнительные условия:
-
     Обеспечить обработку ввода, чтобы программа принимала только числа и корректно реагировала
     на некорректный ввод (например, буквы или символы).
     Можно добавить функционал для ограничения максимального количества попыток.
-
  */
 
 import java.util.Scanner;
@@ -73,10 +66,9 @@ public class Homework09b {
             counter++;
             if (userNumberVariant == goalNumber) {
                 System.out.println("Поздравляю! Вы угадали число за " + counter + " попыток.");
-                // воспроизводим звук
+                // тут начинается вывод музыки
                 try {
                     File soundFile = new File("C:\\Users\\Kate\\Downloads\\zvuk-pobedyi-vyiigryisha.wav"); //Звуковой файл
-
 
                     //Получаем AudioInputStream
                     //Вот тут могут полететь IOException и UnsupportedAudioFileException
@@ -103,7 +95,8 @@ public class Homework09b {
                 } catch (InterruptedException exc) {}
 
 
-                //конец попытки воспроизвести звук
+
+                // тут заканчивается вывод музыки
 
 
                 System.out.println("Хотите играть еще раз? Нажмите да, чтобы продолжить и нет, чтобы закончить: ");
@@ -119,13 +112,12 @@ public class Homework09b {
             } else {
                 if (userNumberVariant > goalNumber) {
                     System.out.println("Загаданное число МЕНЬШЕ введенного");
-                   }
+                }
                 else {System.out.println("Загаданное число БОЛЬШЕ введенного");}
             }
         }
         while (!exit);
         scanner.close();
-
     }
 }
 
