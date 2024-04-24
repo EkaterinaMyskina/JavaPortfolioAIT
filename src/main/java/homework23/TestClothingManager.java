@@ -7,8 +7,6 @@
 */
         package homework23;
 
-import java.util.HashSet;
-
 public class TestClothingManager {
     public static void main(String[] args) {
 

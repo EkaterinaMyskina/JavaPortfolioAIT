@@ -52,6 +52,7 @@ public class ClothingManager {
             }
         }
     }
+    
 
     //поиск одежды
 
