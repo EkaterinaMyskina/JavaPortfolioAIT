@@ -1,19 +1,20 @@
-
-
 package homework25;
 
 import java.util.Objects;
 
 public class Auto {
 
-    private static String vinCode; // уникальный ID - код VIN
-    private static String brand; // марка машины
-    private static String model; // модель машины
-    private static int price; // цена в центах, чтобы избежать погрешности
-    private static int yearOfProduction; // год изготовления
-    private static String shortCharacteristics; // краткая инфа по машине
-    private static String fullCharacteristics; // полная инфа по машине
-    private static String color; // цвет машины
+    private String vinCode; // уникальный ID - код VIN
+    private String brand; // марка машины
+    private String model; // модель машины
+    private int price; // цена в центах, чтобы избежать погрешности
+    private int yearOfProduction; // год изготовления
+    private String shortCharacteristics; // краткая инфа по машине
+    private String fullCharacteristics; // полная инфа по машине
+    private String color; // цвет машины
+
+    // НАДО ДОБАВИТЬ ФОТО МАШИНЫ
+
 
     public Auto(String vinCode, String brand, String model, int price, int yearOfProduction,
                 String shortCharacteristics, String fullCharacteristics, String color) {
@@ -27,93 +28,96 @@ public class Auto {
         this.color = color;
     }
 
-    public static String getVinCode() {
+    public String getVinCode() {
         return vinCode;
     }
 
-    public static String getBrand() {
+    public String getBrand() {
         return brand;
     }
 
-    public static String getModel() {
+    public String getModel() {
         return model;
     }
 
-    public static int getPrice() {
-        return price;
-    }
+    public int getPrice() {return price/100;} // изначально цена в евроцентах. делим на 100, чтобы избежать погрешности
 
-    public static int getYearOfProduction() {
+    public int getYearOfProduction() {
         return yearOfProduction;
     }
 
-    public static String getShortCharacteristics() {
+    public String getShortCharacteristics() {
         return shortCharacteristics;
     }
 
-    public static String getFullCharacteristics() {
+    public String getFullCharacteristics() {
         return fullCharacteristics;
     }
 
-  /*  public static void getColor() {
+    public String getColor() {
         return color;
-    }*/
-
-    public static void setBrand(String brand) {
-        Auto.brand = brand;
     }
 
-    public static void setModel(String model) {
-        Auto.model = model;
+    public void setVinCode(String vinCode) {
+        this.vinCode = vinCode;
     }
 
-    public static void setPrice(int price) {
-        Auto.price = price;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
-    public static void setYearOfProduction(int yearOfProduction) {
-        Auto.yearOfProduction = yearOfProduction;
+    public void setModel(String model) {
+        this.model = model;
     }
 
-    public static void setShortCharacteristics(String shortCharacteristics) {
-        Auto.shortCharacteristics = shortCharacteristics;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public static void setFullCharacteristics(String fullCharacteristics) {
-        Auto.fullCharacteristics = fullCharacteristics;
+    public void setYearOfProduction(int yearOfProduction) {
+        this.yearOfProduction = yearOfProduction;
     }
 
-    public static void setColor(String color) {
-        Auto.color = color;
+    public void setShortCharacteristics(String shortCharacteristics) {
+        this.shortCharacteristics = shortCharacteristics;
+    }
+
+    public void setFullCharacteristics(String fullCharacteristics) {
+        this.fullCharacteristics = fullCharacteristics;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     @Override
     public String toString() {
-        return "Auto{" +
-                "VIN код машины: '" + vinCode + '\'' +
-                ", Марка: '" + brand + '\'' +
-                ", Модель машины: '" + model + '\'' +
-                ", Цвет машины: '" + color + '\'' +
-                ", Цена: '" + price + '\'' +
-                ", Год производства: '" + yearOfProduction + '\'' +
-                ", Краткое описание: '" + shortCharacteristics + '\'' +
-                ", Полное описание: '" + fullCharacteristics + '\'' +
-                '}';
+        final StringBuffer sb = new StringBuffer("homework25.Auto{");
+        sb.append("brand='").append(brand).append("\n");
+        sb.append(", color='").append(color).append("\n");
+        sb.append(", fullCharacteristics='").append(fullCharacteristics).append("\n");
+        sb.append(", model='").append(model).append("\n");
+        sb.append(", price=").append(price);
+        sb.append(", shortCharacteristics='").append(shortCharacteristics).append("\n");
+        sb.append(", vinCode='").append(vinCode).append("\n");
+        sb.append(", yearOfProduction=").append(yearOfProduction);
+        sb.append('}');
+        return sb.toString();
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Auto that = (Auto) o;
-        return Objects.equals(brand, that.brand) && Objects.equals(model, that.model) && Objects.equals(price, that.price) && Objects.equals(color, that.color);
-    }
+        public boolean equals (Object o){
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Auto that = (Auto) o;
+            return Objects.equals(brand, that.brand) && Objects.equals(model, that.model) && Objects.equals(price, that.price) && Objects.equals(color, that.color);
+        }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(brand, model, price, color);
-    }
-}
+        @Override
+        public int hashCode () {
+            return Objects.hash(brand, model, price, color);
+        }
 
+    }
 
 
