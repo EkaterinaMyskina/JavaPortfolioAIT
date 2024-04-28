@@ -55,11 +55,15 @@ import java.util.ArrayList;
 public class TestEmployee {
 
     public static void main(String[] args) {
-        ArrayList<Employee> employee = new ArrayList<>();
-        Employee employee1 = new Employee(1,"Ivan Ivanich","Accounting",1000);
-        Employee employee2= new Employee(2,"Petr Petrovich","Office worker",1500);
-        Employee employee3= new Employee(3,"Semenovich Semenovich","Manager",2000);
+
+        Employee employee1 = new Employee(1, "Ivan Ivanich", "Accounting", 1000);
+        EmployeeManager employeeManager = new EmployeeManager();
+        employeeManager.addEmployee(employee1);
+        Employee employee2 = new Employee(1, "Petr Petrovich", "Office worker", 1500);
+        employeeManager.addEmployee(employee2);
+
+        employeeManager.displayAllEmployees();
+
+        employeeManager.findEmployeeById(3);
     }
-
-
 }

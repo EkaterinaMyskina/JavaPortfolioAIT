@@ -15,7 +15,7 @@
 package homework27;
 
 public class Employee {
-    private int employeeId;
+    private final int employeeId;
     private String name;
     private String department;
     private double salary;
@@ -43,10 +43,6 @@ public class Employee {
         return salary;
     }
 
-    private void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -59,19 +55,13 @@ public class Employee {
         this.salary = salary;
     }
 
-    @Override
-    public String toString() {
-        final StringBuffer sb = new StringBuffer("homework27.Employee{");
-        sb.append("department='").append(department).append('\'');
-        sb.append(", employeeId=").append(employeeId);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", salary=").append(salary);
-        sb.append('}');
+
+    public String displayInfo() {
+        System.out.println("\n");
+        final StringBuffer sb = new StringBuffer("Employee: " + ("\n"));
+        sb.append("department= ").append(department).append("\n");
+        sb.append("employeeId= ").append(employeeId).append("\n");
+        sb.append("name= ").append(name).append("\n");
         return sb.toString();
     }
-
-    private static void displayInfo(){
-        System.out.println("Наш лучший работник.");
-    }
-
 }
