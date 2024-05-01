@@ -12,7 +12,6 @@ public class Auto {
     private String shortCharacteristics; // краткая инфа по машине
     private String fullCharacteristics; // полная инфа по машине
     private String color; // цвет машины
-
     // НАДО ДОБАВИТЬ ФОТО МАШИНЫ
 
 
@@ -40,7 +39,9 @@ public class Auto {
         return model;
     }
 
-    public int getPrice() {return price/100;} // изначально цена в евроцентах. делим на 100, чтобы избежать погрешности
+    public int getPrice() {
+        return price / 100;
+    } // изначально цена в евроцентах. делим на 100, чтобы избежать погрешности
 
     public int getYearOfProduction() {
         return yearOfProduction;
@@ -106,18 +107,18 @@ public class Auto {
     }
 
     @Override
-        public boolean equals (Object o){
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Auto that = (Auto) o;
-            return Objects.equals(brand, that.brand) && Objects.equals(model, that.model) && Objects.equals(price, that.price) && Objects.equals(color, that.color);
-        }
-
-        @Override
-        public int hashCode () {
-            return Objects.hash(brand, model, price, color);
-        }
-
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Auto that = (Auto) o;
+        return Objects.equals(vinCode, that.vinCode);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(vinCode);
+    }
+
+}
 
 
