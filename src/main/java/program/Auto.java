@@ -1,4 +1,4 @@
-package homework25;
+package program;
 
 import java.util.Objects;
 
@@ -103,7 +103,7 @@ public class Auto {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("homework25.Auto{");
+        final StringBuffer sb = new StringBuffer("program.Auto{");
         sb.append("brand='").append(brand).append("\n");
         sb.append(", color='").append(color).append("\n");
         sb.append(", fullCharacteristics='").append(fullCharacteristics).append("\n");

@@ -1,4 +1,4 @@
-package homework25;
+package program;
 
 public enum AutoStatus {
 
