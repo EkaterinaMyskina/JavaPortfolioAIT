@@ -12,6 +12,9 @@ public class Auto {
     private String shortCharacteristics; // краткая инфа по машине
     private String fullCharacteristics; // полная инфа по машине
     private String color; // цвет машины
+    private boolean isAutoFreeForSale; // проверяем статус машины в продаже-true/продана-false
+    private boolean isAutoFreeForTestDrive; // проверяем статус машины для тест-драйва доступна-true/забронирована-false
+
     // НАДО ДОБАВИТЬ ФОТО МАШИНЫ
 
 
@@ -55,9 +58,11 @@ public class Auto {
         return fullCharacteristics;
     }
 
-    public String getColor() {
-        return color;
-    }
+    public String getColor() {return color;}
+
+    public boolean getIsAutoFreeForSale() {return isAutoFreeForSale; }
+
+    public boolean getIsAutoFreeForTestDrive() {return isAutoFreeForTestDrive;}
 
     public void setVinCode(String vinCode) {
         this.vinCode = vinCode;
@@ -80,8 +85,7 @@ public class Auto {
     }
 
     public void setShortCharacteristics(String shortCharacteristics) {
-        this.shortCharacteristics = shortCharacteristics;
-    }
+        this.shortCharacteristics = shortCharacteristics;    }
 
     public void setFullCharacteristics(String fullCharacteristics) {
         this.fullCharacteristics = fullCharacteristics;
@@ -90,6 +94,12 @@ public class Auto {
     public void setColor(String color) {
         this.color = color;
     }
+
+    public void setAutoFreeForSale(boolean autoFreeForSale) {
+        isAutoFreeForSale = autoFreeForSale;     }
+
+    public void setAutoFreeForTestDrive(boolean autoFreeForTestDrive) {
+        isAutoFreeForTestDrive = autoFreeForTestDrive;     }
 
     @Override
     public String toString() {
